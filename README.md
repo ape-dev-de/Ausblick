@@ -35,4 +35,6 @@ CalDAV (later): emersion/go-webdav will be used for CalDAV support.
 
 This project is licensed under the Apache 2.0 License – see the [LICENSE](LICENSE.md) file for details.
 
+You find the Contributions at the [Contributing.md](CONTRIBUTING.md)
+
 

@@ -30,3 +30,9 @@ Secrets: Tokens and credentials are stored in the OS keychain (e.g. via zalando/
 IMAP/SMTP (later): emersion/go-imapv2 and emersion/go-message will be used to support IMAP and SMTP for non-Exchange providers.
 
 CalDAV (later): emersion/go-webdav will be used for CalDAV support.
+
+# License
+
+This project is licensed under the Apache 2.0 License – see the [LICENSE](LICENSE.md) file for details.
+
+

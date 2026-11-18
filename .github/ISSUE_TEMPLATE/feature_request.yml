@@ -1,0 +1,12 @@
+name: Feature Request
+description: Schlage eine neue Funktion vor.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Vorschlag
+      description: Beschreibe den Vorschlag
+    validations:
+      required: true

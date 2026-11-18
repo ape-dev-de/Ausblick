@@ -1,1 +1,20 @@
+name: Bug Report
+description: Melde einen Fehler.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Was ist passiert?
+      description: Beschreibe den Fehler kurz.
+    validations:
+      required: true
 
+  - type: textarea
+    id: steps
+    attributes:
+      label: Wie kann man den Fehler nachstellen?
+      description: Schritte zum Reproduzieren.
+    validations:
+      required: true

@@ -1,0 +1,21 @@
+name: Check PR Title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  check-title:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          TITLE: ${{ github.event.pull_request.title }}
+          ACTOR: ${{ github.actor }}
+        run: |
+          [[ "$ACTOR" == "dependabot[bot]" ]] && exit 0
+
+          shopt -u nocasematch
+          [[ "$TITLE" =~ ^AUS-[0-9]+:[[:space:]][a-z]+!?:[[:space:]].+ ]] || {
+            echo "::error::Format muss 'AUS-123: <typ>: Beschreibung' sein."
+            exit 1
+          }

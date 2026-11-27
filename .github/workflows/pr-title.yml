@@ -8,13 +8,14 @@ jobs:
   check-title:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - env:
           TITLE: ${{ github.event.pull_request.title }}
+          ACTOR: ${{ github.actor }}
         run: |
-          TYPES="feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert"
-          REGEX="^(${TYPES})(\([a-zA-Z0-9_-]+\))?!?: .+"
-          [[ "$TITLE" =~ $REGEX ]] || {
-            echo "::error::Ungültiger PR-Titel '$TITLE'. Erwartet: <type>[optional scope]: <description> (z. B. feat: add login)"
+          [[ "$ACTOR" == "dependabot[bot]" ]] && exit 0
+
+          shopt -u nocasematch
+          [[ "$TITLE" =~ ^AUS-[0-9]+:[[:space:]][a-z]+!?:[[:space:]].+ ]] || {
+            echo "::error::Format muss 'AUS-123: <typ>: Beschreibung' sein."
             exit 1
           }
